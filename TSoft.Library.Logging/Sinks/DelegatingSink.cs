@@ -21,13 +21,13 @@ namespace TSoft.Library.Logging.Sinks
         /// <param name="write"> The write. </param>
         public DelegatingSink(Action<LogEvent> write)
         {
-            _write = write ?? throw new ArgumentNullException(nameof(write));
+            this.write = write ?? throw new ArgumentNullException(nameof(write));
         }
         #endregion
 
         #region [Fields]
         /// <summary> The write. </summary>
-        private readonly Action<LogEvent> _write;
+        private readonly Action<LogEvent> write;
         #endregion
 
         #region [Public methods]
@@ -36,7 +36,7 @@ namespace TSoft.Library.Logging.Sinks
         /// <seealso cref="M:Serilog.Core.ILogEventSink.Emit(LogEvent)"/>
         public void Emit(LogEvent logEvent)
         {
-            _write(logEvent);
+            this.write(logEvent);
         }
 
         /// <summary> Gets log event. </summary>

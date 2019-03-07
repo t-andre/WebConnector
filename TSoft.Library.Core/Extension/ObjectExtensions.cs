@@ -26,7 +26,7 @@ namespace TSoft.Library.Core
         /// <param name="source">      Another instance to copy. </param>
         /// <param name="destination"> Destination for the. </param>
         /// <returns> A T. </returns>
-        public static T CopyObjectValues<T>(T source, T destination)
+        public static T CopyObjectValues<T>(this T source, T destination)
         {
             foreach (PropertyInfo propertyInfo in source.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
             {

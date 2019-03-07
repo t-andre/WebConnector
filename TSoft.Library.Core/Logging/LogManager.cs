@@ -20,13 +20,13 @@ namespace TSoft.Library.Core.Logging
         /// <param name="logger"> The logger. </param>
         public LogManager(ILogger logger)
         {
-            _Log = logger;
+            log = logger;
         }
         #endregion
 
         #region [Fields]
         /// <summary> The log. </summary>
-        private static ILogger _Log = new NullLogger();
+        private static ILogger log = new NullLogger();
         #endregion
 
         #region [Public properties]
@@ -34,14 +34,14 @@ namespace TSoft.Library.Core.Logging
         /// <value> The log. </value>
         public static ILogger Log
         {
-            get { return _Log; }
+            get { return log; }
         }
 
         /// <summary> Gets the logger. </summary>
         /// <value> The logger. </value>
         public ILogger Logger
         {
-            get { return _Log; }
+            get { return log; }
         }
         #endregion
 
@@ -52,7 +52,7 @@ namespace TSoft.Library.Core.Logging
         public static ILogger SubscribEventLog<T>()
             where T : class
         {
-            return _Log.SubscribEventLog<T>();
+            return log.SubscribEventLog<T>();
         }
 
         /// <summary> Subscrib event log. </summary>
@@ -60,7 +60,7 @@ namespace TSoft.Library.Core.Logging
         /// <returns> An ILogger. </returns>
         public static ILogger SubscribEventLog(string name)
         {
-            return _Log.SubscribEventLog(name);
+            return log.SubscribEventLog(name);
         }
 
         /// <summary> Subscrib event log. </summary>
@@ -69,7 +69,7 @@ namespace TSoft.Library.Core.Logging
         /// <returns> An ILogger. </returns>
         public static ILogger SubscribEventLog(string name, object value)
         {
-            return _Log.SubscribEventLog(name, value);
+            return log.SubscribEventLog(name, value);
         }
         #endregion
     }

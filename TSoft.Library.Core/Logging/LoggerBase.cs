@@ -15,25 +15,25 @@ namespace TSoft.Library.Core.Logging
     {
         #region [Fields]
         /// <summary> The log event delegates. </summary>
-        private readonly List<LogEventHandler> _LogEventDelegates = new List<LogEventHandler>();
+        private readonly List<LogEventHandler> logEventDelegates = new List<LogEventHandler>();
         #endregion
 
         #region [Events]
         /// <summary> Occurs when Log. </summary>
-        private event LogEventHandler _LogEvent;
+        private event LogEventHandler logEvent;
 
         /// <summary> Occurs when log. </summary>
 		public virtual event LogEventHandler LogEvent
         {
             add
             {
-                this._LogEvent += value;
-                this._LogEventDelegates.Add(value);
+                this.logEvent += value;
+                this.logEventDelegates.Add(value);
             }
             remove
             {
-                this._LogEvent -= value;
-                this._LogEventDelegates.Remove(value);
+                this.logEvent -= value;
+                this.logEventDelegates.Remove(value);
             }
         }
         #endregion
@@ -131,8 +131,8 @@ namespace TSoft.Library.Core.Logging
         /// <seealso cref="M:TSoft.Library.Core.Logging.ILogger.OnLogEvent(LogItem)"/>
 		public virtual void OnLogEvent(LogItem e)
         {
-            if (this._LogEvent != null && e != null)
-                this._LogEvent(e);
+            if (this.logEvent != null && e != null)
+                this.logEvent(e);
         }
 
         /// <summary> Subscrib event log. </summary>
