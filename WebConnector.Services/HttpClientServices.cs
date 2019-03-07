@@ -3,7 +3,7 @@
 namespace WebConnector.Services
 {
     /// <summary> A HTTP client base. </summary>
-    public abstract class HttpClientBase
+    public abstract class HttpClientServices
     {
     }
 }
