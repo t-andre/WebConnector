@@ -11,6 +11,11 @@
   <ItemGroup>
     <ProjectReference Include="..\TSoft.Library.Core\TSoft.Library.Core.csproj" />
     <ProjectReference Include="..\TSoft.Library.Logging\TSoft.Library.Logging.csproj" />
+    <ProjectReference Include="..\WebConnector.Contracts\WebConnector.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Web\" />
   </ItemGroup>
 
 </Project>

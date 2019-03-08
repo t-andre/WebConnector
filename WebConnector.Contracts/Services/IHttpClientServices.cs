@@ -6,7 +6,8 @@
 // <summary>Declares the IHttpClientServices interface</summary>
 using System;
 using System.Net;
-using WebConnector.Services.Serialization;
+using WebConnector.Contracts.Enums;
+using WebConnector.Contracts.Services;
 
 namespace WebConnector.Services.Web
 {
@@ -61,8 +62,7 @@ namespace WebConnector.Services.Web
         /// <returns> The asynchronous. </returns>
         string GetAsync();
 
-
-        /// <summary> Posts data asynchronous. </summary>
+        /// <summary> Posts an asynchronous data. </summary>
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="data">           The data. </param>
         /// <param name="serializerType"> Type of the serializer. </param>

@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebConnector.Services", "WebConnector.Services\WebConnector.Services.csproj", "{080CFAFD-CF95-4284-A6BF-19153EEA8D06}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebConnector.Kanboard", "WebConnector.Kanboard\WebConnector.Kanboard.csproj", "{6798FE1A-8FD9-42A8-8C4A-B6FA2B5FA19B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSoft.Library.Logging", "TSoft.Library.Logging\TSoft.Library.Logging.csproj", "{32040467-0A3A-4BC6-B158-57F2896CBCDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSoft.Library.Logging", "TSoft.Library.Logging\TSoft.Library.Logging.csproj", "{32040467-0A3A-4BC6-B158-57F2896CBCDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSoft.Library.Core", "TSoft.Library.Core\TSoft.Library.Core.csproj", "{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TSoft.Library.Core", "TSoft.Library.Core\TSoft.Library.Core.csproj", "{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebConnector.Contracts", "WebConnector.Contracts\WebConnector.Contracts.csproj", "{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

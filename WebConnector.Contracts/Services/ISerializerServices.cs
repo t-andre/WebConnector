@@ -5,8 +5,9 @@
 // <date>08.03.2019</date>
 // <summary>Declares the ISerializerServices interface</summary>
 using System;
+using WebConnector.Contracts.Enums;
 
-namespace WebConnector.Services.Serialization
+namespace WebConnector.Contracts.Services
 {
     /// <summary> Interface for serializer services. </summary>
     public interface ISerializerServices

@@ -6,9 +6,8 @@
 // <summary>Declares the IWebConnectorServices interface</summary>
 using System;
 using TSoft.Library.Core.Logging;
-using WebConnector.Contracts.Services;
 
-namespace WebConnector.Services
+namespace WebConnector.Contracts.Services
 {
     /// <summary> Interface for web connector services. </summary>
     public interface IWebConnectorServices
