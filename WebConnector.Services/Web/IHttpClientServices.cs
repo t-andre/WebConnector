@@ -45,13 +45,22 @@ namespace WebConnector.Services.Web
         #endregion
 
         #region [Methods Implementation]
+        /// <summary> Initializes this HttpClientServices. </summary>
+        void Initialize();
+
+        /// <summary> Initializes this HttpClientServices. </summary>
+        /// <param name="url">             The URL. </param>
+        /// <param name="userName">        The name of the user. </param>
+        /// <param name="passwordOrToken"> The password or token. </param>
+        void Initialize(string url, string userName, string passwordOrToken);
+
+        /// <summary> Resets this IHttpClientServices. </summary>
+        void Reset();
 
         /// <summary> Gets the asynchronous. </summary>
         /// <returns> The asynchronous. </returns>
         string GetAsync();
 
-        /// <summary> Initializes this HttpClientServices. </summary>
-        void Initialize();
 
         /// <summary> Posts data asynchronous. </summary>
         /// <typeparam name="T"> Generic type parameter. </typeparam>
@@ -60,8 +69,7 @@ namespace WebConnector.Services.Web
         /// <returns> A string. </returns>
         string PostAsync<T>(T data, SerializerType serializerType);
 
-        /// <summary> Resets this IHttpClientServices. </summary>
-        void Reset();
+       
         #endregion
     }
 }

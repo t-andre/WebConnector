@@ -85,12 +85,34 @@ namespace WebConnector.Services.Web
             }
         }
 
+        /// <summary> Initializes this HttpClientServices. </summary>
+        /// <param name="url">             The URL. </param>
+        /// <param name="userName">        The name of the user. </param>
+        /// <param name="passwordOrToken"> The password or token. </param>
+        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.Initialize(string,string,string)"/>
+        public void Initialize(string url, string userName, string passwordOrToken)
+        {
+            this.Url = url;
+            this.UserName = userName;
+            this.PasswordOrToken = passwordOrToken;
+            this.RequiresAuthentication = (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(passwordOrToken)) || !string.IsNullOrEmpty(passwordOrToken);
+
+            if (!this.ClientInitialized)
+            {
+                if (this.RequiresAuthentication)
+                {
+                    this.NetworkCredential = new NetworkCredential(this.UserName, this.PasswordOrToken);
+                }
+            }
+        }
+
         /// <summary> Resets this HttpClientServices. </summary>
         /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.Reset()"/>
         public void Reset()
         {
             this.NetworkCredential = null;
             this.ClientInitialized = false;
+            this.RequiresAuthentication = false;
         }
 
         /// <summary> Gets the asynchronous. </summary>
