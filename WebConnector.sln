@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connectors", "Connectors", "{75011320-5296-439B-B92F-E175A79438D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebConnector.Outlook", "Connectors\WebConnector.Outlook\WebConnector.Outlook.csproj", "{31292F40-600B-4D24-8824-9E4B31E9FCCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebConnector.Asana", "Connectors\WebConnector.Asana\WebConnector.Asana.csproj", "{E172001B-F5E6-44D8-A1D5-7A07C488FCB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31292F40-600B-4D24-8824-9E4B31E9FCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31292F40-600B-4D24-8824-9E4B31E9FCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31292F40-600B-4D24-8824-9E4B31E9FCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31292F40-600B-4D24-8824-9E4B31E9FCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E172001B-F5E6-44D8-A1D5-7A07C488FCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E172001B-F5E6-44D8-A1D5-7A07C488FCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E172001B-F5E6-44D8-A1D5-7A07C488FCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E172001B-F5E6-44D8-A1D5-7A07C488FCB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +64,8 @@ Global
 		{32040467-0A3A-4BC6-B158-57F2896CBCDA} = {4C223AB3-3BD2-4B28-BB40-5068E0F1C73B}
 		{0EFF343C-4C5E-4FCE-8F21-D74E7D2B1E2C} = {4C223AB3-3BD2-4B28-BB40-5068E0F1C73B}
 		{663647DD-CEC6-4EE9-9A3B-7CCEF0814639} = {4C223AB3-3BD2-4B28-BB40-5068E0F1C73B}
+		{31292F40-600B-4D24-8824-9E4B31E9FCCC} = {75011320-5296-439B-B92F-E175A79438D4}
+		{E172001B-F5E6-44D8-A1D5-7A07C488FCB0} = {75011320-5296-439B-B92F-E175A79438D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {362D60ED-A000-4FB6-91BF-43348E5BC1F3}

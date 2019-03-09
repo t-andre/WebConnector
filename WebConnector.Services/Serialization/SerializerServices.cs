@@ -13,6 +13,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using TSoft.Library.Core.Logging;
+using WebConnector.Contracts;
 using WebConnector.Contracts.Enums;
 using WebConnector.Contracts.Services;
 
