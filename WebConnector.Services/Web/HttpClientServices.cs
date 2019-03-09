@@ -10,7 +10,8 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using TSoft.Library.Core.Logging;
-using WebConnector.Services.Serialization;
+using WebConnector.Contracts.Enums;
+using WebConnector.Contracts.Services;
 
 namespace WebConnector.Services.Web
 {

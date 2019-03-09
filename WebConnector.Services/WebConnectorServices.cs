@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using TSoft.Library.Core.Logging;
 using TSoft.Library.Logging;
+using WebConnector.Contracts.Services;
 using WebConnector.Services.Serialization;
 using WebConnector.Services.Web;
 
