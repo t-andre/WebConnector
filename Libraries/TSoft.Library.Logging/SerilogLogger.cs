@@ -34,25 +34,7 @@ namespace TSoft.Library.Logging
 
             if (!initialised)
             {
-                Serilog.Debugging.SelfLog.Enable(Console.Out);
-                var configuration = new LoggerConfiguration()
-                    .MinimumLevel.Debug()
-                    //.Enrich.WithThreadId()
-                    //.Enrich.WithEnvironmentUserName()
-                    //.Enrich.WithProperty("Version", "1.0.0")
-                    .WriteTo.Sink(new DelegatingSink(LogHandler));
-
-                if (loggerConfiguration != null)
-                {
-                    configuration = loggerConfiguration(configuration);
-                }
-                else
-                {
-                    configuration
-                        .WriteToConsole()
-                        .WriteToRollingFile();
-                }
-
+                LoggerConfiguration configuration = ConfigureLogger(loggerConfiguration);
                 log = configuration
                     .CreateLogger()
                     .ForContext<T>();
@@ -108,28 +90,10 @@ namespace TSoft.Library.Logging
         /// <param name="loggerConfiguration"> (Optional) The logger configuration. </param>
         public SerilogLogger(string context, object value, Func<LoggerConfiguration, LoggerConfiguration> loggerConfiguration = null)
         {
-            this.LogTemplate = SerilogConfiguration.Template;
-            this.LogTemplateHeader = SerilogConfiguration.TemplateHeader;
 
             if (!initialised)
             {
-                Serilog.Debugging.SelfLog.Enable(Console.Out);
-                var configuration = new LoggerConfiguration()
-                    .MinimumLevel.Debug()
-                    .Enrich.WithProperty("Version", "1.0.0")
-                    .WriteTo.Sink(new DelegatingSink(LogHandler));
-
-                if (loggerConfiguration != null)
-                {
-                    configuration = loggerConfiguration(configuration);
-                }
-                else
-                {
-                    configuration
-                        .WriteToConsole()
-                        .WriteToRollingFile();
-                }
-
+                LoggerConfiguration configuration = ConfigureLogger(loggerConfiguration);
                 log = configuration
                     .CreateLogger()
                     .ForContext(context, value, true);
@@ -384,6 +348,36 @@ namespace TSoft.Library.Logging
         #endregion
 
         #region [Protected methods]
+        /// <summary> Configure logger. </summary>
+        /// <param name="loggerConfiguration"> The logger configuration. </param>
+        /// <returns> A LoggerConfiguration. </returns>
+        protected LoggerConfiguration ConfigureLogger(Func<LoggerConfiguration, LoggerConfiguration> loggerConfiguration)
+        {
+            this.LogTemplate = SerilogConfiguration.Template;
+            this.LogTemplateHeader = SerilogConfiguration.TemplateHeader;
+
+            Serilog.Debugging.SelfLog.Enable(Console.Out);
+            var configuration = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                //.Enrich.WithThreadId()
+                //.Enrich.WithEnvironmentUserName()
+                //.Enrich.WithProperty("Version", "1.0.0")
+                .WriteTo.Sink(new DelegatingSink(LogHandler));
+
+            if (loggerConfiguration != null)
+            {
+                configuration = loggerConfiguration(configuration);
+            }
+            else
+            {
+                configuration
+                    .WriteToConsole()
+                    .WriteToRollingFile();
+            }
+
+            return configuration;
+        }
+
         /// <summary> Handler, called when the log. </summary>
         /// <param name="logEvent"> The log event. </param>
         protected void LogHandler(LogEvent logEvent)
