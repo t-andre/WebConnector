@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\TSoft.Library.Core\TSoft.Library.Core.csproj" />
+    <ProjectReference Include="..\..\Libraries\WebConnector.Contracts\WebConnector.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

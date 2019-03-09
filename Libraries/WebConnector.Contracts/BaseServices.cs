@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using TSoft.Library.Core.Logging;
 
-namespace WebConnector.Services
+namespace WebConnector.Contracts
 {
     /// <summary> A base services. </summary>
     public class BaseServices
