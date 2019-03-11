@@ -1,16 +1,36 @@
-﻿using WebConnector.Kanboard.Entities;
+﻿// <copyright file="UserProcedures.cs" company="Tavares Software Developement">
+// Copyright (c) 2019 Tavares Software Developement. All rights reserved.
+// </copyright>
+// <author>Tavares</author>
+// <date>09.03.2019</date>
+// <summary>Implements the user procedures class</summary>
+using WebConnector.Kanboard.Entities;
 
 namespace WebConnector.Kanboard.Api.Procedures
 {
+    /// <content> An API reference. </content>
     public partial class ApiReference
     {
+        #region [Nested Class]
+        /// <summary> A user procedures. </summary>
         public class UserProcedures
         {
+            #region [Public methods]
+            /// <summary> Gets a user. </summary>
+            /// <param name="id">      The identifier. </param>
+            /// <param name="user_id"> Identifier for the user. </param>
+            /// <returns> The user. </returns>
             public static BaseRequest GetUser(int id, int user_id)
                 => BaseRequest.Create(ApiReferenceConstant.UserProcedures.getUser, id, new { user_id });
+
+            /// <summary> Gets user by name. </summary>
+            /// <param name="id">       The identifier. </param>
+            /// <param name="username"> The username. </param>
+            /// <returns> The user by name. </returns>
             public static BaseRequest GetUserByName(int id, string username)
                 => BaseRequest.Create(ApiReferenceConstant.UserProcedures.getUserByName, id, new { username });
+            #endregion
         }
+        #endregion
     }
-
 }
