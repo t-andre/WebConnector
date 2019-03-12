@@ -6,6 +6,7 @@
 // <summary>Implements the API reference class</summary>
 using System;
 using WebConnector.Kanboard.Api.Procedures;
+using static WebConnector.Kanboard.Api.Procedures.ApiReference;
 
 namespace WebConnector.Kanboard.Api
 {

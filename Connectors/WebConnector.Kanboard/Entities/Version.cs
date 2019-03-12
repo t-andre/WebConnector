@@ -10,7 +10,7 @@ namespace WebConnector.Kanboard.Entities
 {
     /// <summary> A version. </summary>
     /// <seealso cref="T:WebConnector.Kanboard.Entities.BaseResponse"/>
-    public class Version : BaseResponse
+    public class Version : Response
     {
         #region [Public properties]
         /// <summary> Gets or sets the result. </summary>

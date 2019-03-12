@@ -20,15 +20,15 @@ namespace WebConnector.Kanboard.Api.Procedures
             /// <param name="id">      The identifier. </param>
             /// <param name="user_id"> Identifier for the user. </param>
             /// <returns> The user. </returns>
-            public static BaseRequest GetUser(int id, int user_id)
-                => BaseRequest.Create(ApiReferenceConstant.UserProcedures.GetUser, id, new { user_id });
+            public static Request GetUser(int id, int user_id)
+                => Request.Create(ApiReferenceConstant.UserProcedures.GetUser, id, new { user_id });
 
             /// <summary> Gets user by name. </summary>
             /// <param name="id">       The identifier. </param>
             /// <param name="username"> The username. </param>
             /// <returns> The user by name. </returns>
-            public static BaseRequest GetUserByName(int id, string username)
-                => BaseRequest.Create(ApiReferenceConstant.UserProcedures.GetUserByName, id, new { username });
+            public static Request GetUserByName(int id, string username)
+                => Request.Create(ApiReferenceConstant.UserProcedures.GetUserByName, id, new { username });
             #endregion
         }
         #endregion

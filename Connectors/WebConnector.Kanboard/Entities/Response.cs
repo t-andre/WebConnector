@@ -1,4 +1,4 @@
-﻿// <copyright file="BaseResponse.cs" company="Tavares Software Developement">
+﻿// <copyright file="Response.cs" company="Tavares Software Developement">
 // Copyright (c) 2019 Tavares Software Developement. All rights reserved.
 // </copyright>
 // <author>Tavares</author>
@@ -8,10 +8,12 @@ using System;
 
 namespace WebConnector.Kanboard.Entities
 {
-    /// <summary> A base response. </summary>
-    public abstract class BaseResponse
+
+    /// <summary> A response. </summary>
+    public abstract class Response
     {
         #region [Public properties]
+
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public int id { get; set; }
@@ -19,6 +21,10 @@ namespace WebConnector.Kanboard.Entities
         /// <summary> Gets or sets the jsonrpc. </summary>
         /// <value> The jsonrpc. </value>
         public string jsonrpc { get; set; } = "2.0";
+
+        /// <summary> Gets or sets the result. </summary>
+        /// <value> The result. </value>
+        public dynamic result { get; set; }
         #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿// <copyright file="BaseRequest.cs" company="Tavares Software Developement">
+﻿// <copyright file="Request.cs" company="Tavares Software Developement">
 // Copyright (c) 2019 Tavares Software Developement. All rights reserved.
 // </copyright>
 // <author>Tavares</author>
@@ -10,21 +10,23 @@ using System.Text;
 
 namespace WebConnector.Kanboard.Entities
 {
-    /// <summary> A base request. </summary>
-    public class BaseRequest
+
+    /// <summary> A request. </summary>
+    public class Request
     {
         #region [Constructors]
-        /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.BaseRequest class. </summary>
-        public BaseRequest()
+
+        /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.Request class. </summary>
+        public Request()
         {
 
         }
 
-        /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.BaseRequest class. </summary>
+        /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.Request class. </summary>
         /// <param name="method">     The method. </param>
         /// <param name="id">         The identifier. </param>
         /// <param name="parameters"> (Optional) Options for controlling the operation. </param>
-        public BaseRequest(string method, int id, object parameters = null)
+        public Request(string method, int id, object parameters = null)
         {
             this.method = method;
             this.id = id;
@@ -33,6 +35,7 @@ namespace WebConnector.Kanboard.Entities
         #endregion
 
         #region [Public properties]
+
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public int id { get; set; }
@@ -51,14 +54,15 @@ namespace WebConnector.Kanboard.Entities
         #endregion
 
         #region [Public methods]
-        /// <summary> Creates a new BaseRequest. </summary>
+
+        /// <summary> Creates a new Request. </summary>
         /// <param name="method">     The method. </param>
         /// <param name="id">         The identifier. </param>
         /// <param name="parameters"> (Optional) Options for controlling the operation. </param>
-        /// <returns> A BaseRequest. </returns>
-        public static BaseRequest Create(string method, int id, dynamic parameters = null)
+        /// <returns> A Request. </returns>
+        public static Request Create(string method, int id, dynamic parameters = null)
         {
-            return new BaseRequest
+            return new Request
             {
                 method = method,
                 id = id,
