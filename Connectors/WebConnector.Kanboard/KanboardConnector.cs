@@ -7,7 +7,7 @@
 using System;
 using TSoft.Library.Core.Logging;
 using WebConnector.Contracts;
-using WebConnector.Services.Web;
+using WebConnector.Contracts.Services;
 
 namespace WebConnector.Kanboard
 {

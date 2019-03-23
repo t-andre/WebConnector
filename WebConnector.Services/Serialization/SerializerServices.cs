@@ -76,7 +76,7 @@ namespace WebConnector.Services.Serialization
                 case SerializerType.Json:
                     return this.JsonDeserialize<T>(data);
                 default:
-                    return default(T);
+                    return default;
             }
         }
 
@@ -95,13 +95,13 @@ namespace WebConnector.Services.Serialization
                 }
                 else
                 {
-                    return default(T);
+                    return default;
                 }
             }
             catch (Exception ex)
             {
                 this.Logger.Fatal("Cannot deserialize Json Data : {0}", ex, data);
-                return default(T);
+                return default;
             }
         }
 
@@ -115,7 +115,6 @@ namespace WebConnector.Services.Serialization
             try
             {
                 return JsonConvert.SerializeObject(data);
-
             }
             catch (Exception ex)
             {
@@ -149,13 +148,13 @@ namespace WebConnector.Services.Serialization
                 }
                 else
                 {
-                    return default(T);
+                    return default;
                 }
             }
             catch (Exception ex)
             {
                 this.Logger.Fatal("Cannot deserialize Data : {0}", ex, xml);
-                return default(T);
+                return default;
             }
         }
 
@@ -195,7 +194,7 @@ namespace WebConnector.Services.Serialization
         {
             var key = type.FullName;
             XmlSerializer xmlSerializer = new XmlSerializer(type);
-            return this.serializerCache.GetOrAdd(key, k => xmlSerializer);
+            return this.serializerCache.GetOrAdd(key, _ => xmlSerializer);
         }
         #endregion
 

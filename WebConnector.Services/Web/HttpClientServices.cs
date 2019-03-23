@@ -16,9 +16,9 @@ using WebConnector.Contracts.Services;
 
 namespace WebConnector.Services.Web
 {
-    /// <summary> A HTTP client base. </summary>
-    /// <seealso cref="T:WebConnector.Services.BaseServices"/>
-    /// <seealso cref="T:WebConnector.Services.Web.IHttpClientServices"/>
+    /// <summary> A HTTP client services. </summary>
+    /// <seealso cref="T:WebConnector.Contracts.BaseServices"/>
+    /// <seealso cref="T:WebConnector.Contracts.Services.IHttpClientServices"/>
     public class HttpClientServices : BaseServices, IHttpClientServices
     {
         #region [Constructors]
@@ -38,44 +38,44 @@ namespace WebConnector.Services.Web
 
         /// <summary> Gets or sets a value indicating whether the client initialized. </summary>
         /// <value> True if client initialized, false if not. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.ClientInitialized"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.ClientInitialized"/>
         public bool ClientInitialized { get; set; }
 
         /// <summary> Gets the network credential. </summary>
         /// <value> The network credential. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.NetworkCredential"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.NetworkCredential"/>
         public NetworkCredential NetworkCredential { get; private set; }
 
         /// <summary> Gets or sets the password or token. </summary>
         /// <value> The password or token. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.PasswordOrToken"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.PasswordOrToken"/>
         public string PasswordOrToken { get; set; }
 
         /// <summary> Gets or sets a value indicating whether the requires authentication. </summary>
         /// <value> True if requires authentication, false if not. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.RequiresAuthentication"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.RequiresAuthentication"/>
         public bool RequiresAuthentication { get; set; }
 
         /// <summary> Gets the serializer. </summary>
         /// <value> The serializer. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.Serializer"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.Serializer"/>
         public ISerializerServices Serializer { get; }
 
         /// <summary> Gets or sets URL of the document. </summary>
         /// <value> The URL. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.Url"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.Url"/>
         public string Url { get; set; }
 
         /// <summary> Gets or sets the name of the user. </summary>
         /// <value> The name of the user. </value>
-        /// <seealso cref="P:WebConnector.Services.Web.IHttpClientServices.UserName"/>
+        /// <seealso cref="P:WebConnector.Contracts.Services.IHttpClientServices.UserName"/>
         public string UserName { get; set; }
         #endregion
 
         #region [Public methods]
 
         /// <summary> Initializes this HttpClientServices. </summary>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.Initialize()"/>
+        /// <seealso cref="M:WebConnector.Contracts.Services.IHttpClientServices.Initialize()"/>
         public void Initialize()
         {
             if (!this.ClientInitialized)
@@ -91,7 +91,7 @@ namespace WebConnector.Services.Web
         /// <param name="url">             The URL. </param>
         /// <param name="userName">        The name of the user. </param>
         /// <param name="passwordOrToken"> The password or token. </param>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.Initialize(string,string,string)"/>
+        /// <seealso cref="M:WebConnector.Contracts.Services.IHttpClientServices.Initialize(string,string,string)"/>
         public void Initialize(string url, string userName, string passwordOrToken)
         {
             this.Url = url;
@@ -108,8 +108,8 @@ namespace WebConnector.Services.Web
             }
         }
 
-        /// <summary> Resets this HttpClientServices. </summary>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.Reset()"/>
+        /// <summary> Resets this IHttpClientServices. </summary>
+        /// <seealso cref="M:WebConnector.Contracts.Services.IHttpClientServices.Reset()"/>
         public void Reset()
         {
             this.NetworkCredential = null;
@@ -117,22 +117,13 @@ namespace WebConnector.Services.Web
             this.RequiresAuthentication = false;
         }
 
-        /// <summary> Gets the asynchronous. </summary>
-        /// <returns> The asynchronous. </returns>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.GetAsync()"/>
-        public string GetAsync()
-        {
-            return string.Empty;
-        }
-
-        /// <summary> Posts data asynchronous. </summary>
+        /// <summary> Gets stream asynchronous. </summary>
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="data">           The data. </param>
         /// <param name="serializerType"> Type of the serializer. </param>
-        /// <returns> A string. </returns>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.PostAsync{T}(T,SerializerType)"/>
-        /// <seealso cref="M:WebConnector.Services.Web.IHttpClientServices.PostJsonAsync{T}(T)"/>
-        public string PostAsync<T>(T data, SerializerType serializerType)
+        /// <returns> An asynchronous result that yields the async&lt; t&gt; </returns>
+        /// <seealso cref="M:WebConnector.Contracts.Services.IHttpClientServices.GetAsync{T}(T,SerializerType)"/>
+        public async Task<string> GetAsync<T>(T data, SerializerType serializerType)
         {
             try
             {
@@ -145,8 +136,36 @@ namespace WebConnector.Services.Web
                     }
 
                     var json = this.Serializer.Serialize<T>(data, serializerType);
-                    var postData = httpClient.UploadString(this.Url, "POST", json);
-                    return postData;
+                    return await httpClient.DownloadStringTaskAsync(new Uri(this.Url)).ConfigureAwait(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.Fatal("Cannot Get Data : {0}", ex);
+                return string.Empty;
+            }
+        }
+
+        /// <summary> Posts an asynchronous data. </summary>
+        /// <typeparam name="T"> Generic type parameter. </typeparam>
+        /// <param name="data">           The data. </param>
+        /// <param name="serializerType"> Type of the serializer. </param>
+        /// <returns> A string. </returns>
+        /// <seealso cref="M:WebConnector.Contracts.Services.IHttpClientServices.PostAsync{T}(T,SerializerType)"/>
+        public async Task<string> PostAsync<T>(T data, SerializerType serializerType)
+        {
+            try
+            {
+                using (WebClient httpClient = new WebClient())
+                {
+                    if (this.RequiresAuthentication)
+                    {
+                        httpClient.UseDefaultCredentials = true;
+                        httpClient.Credentials = this.NetworkCredential;
+                    }
+
+                    var json = this.Serializer.Serialize<T>(data, serializerType);
+                    return await httpClient.UploadStringTaskAsync(new Uri(this.Url), "POST", json).ConfigureAwait(false);
                 }
             }
             catch (Exception ex)

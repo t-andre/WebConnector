@@ -6,10 +6,10 @@
 // <summary>Declares the IHttpClientServices interface</summary>
 using System;
 using System.Net;
+using System.Threading.Tasks;
 using WebConnector.Contracts.Enums;
-using WebConnector.Contracts.Services;
 
-namespace WebConnector.Services.Web
+namespace WebConnector.Contracts.Services
 {
     /// <summary> Interface for HTTP client services. </summary>
     public interface IHttpClientServices
@@ -58,18 +58,20 @@ namespace WebConnector.Services.Web
         /// <summary> Resets this IHttpClientServices. </summary>
         void Reset();
 
-        /// <summary> Gets the asynchronous. </summary>
-        /// <returns> The asynchronous. </returns>
-        string GetAsync();
+        /// <summary> Gets stream asynchronous. </summary>
+        /// <typeparam name="T"> Generic type parameter. </typeparam>
+        /// <param name="data">           The data. </param>
+        /// <param name="serializerType"> Type of the serializer. </param>
+        /// <returns> An asynchronous result that yields the async&lt; t&gt; </returns>
+        Task<string> GetAsync<T>(T data, SerializerType serializerType);
 
-        /// <summary> Posts an asynchronous data. </summary>
+        /// <summary> Posts stream asynchronous. </summary>
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="data">           The data. </param>
         /// <param name="serializerType"> Type of the serializer. </param>
         /// <returns> A string. </returns>
-        string PostAsync<T>(T data, SerializerType serializerType);
+        Task<string> PostAsync<T>(T data, SerializerType serializerType);
 
-       
         #endregion
     }
 }
