@@ -10,7 +10,6 @@ using System.Text;
 
 namespace WebConnector.Kanboard.Entities
 {
-
     /// <summary> A request. </summary>
     public class Request
     {
@@ -19,7 +18,6 @@ namespace WebConnector.Kanboard.Entities
         /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.Request class. </summary>
         public Request()
         {
-
         }
 
         /// <summary> Initializes a new instance of the WebConnector.Kanboard.Entities.Request class. </summary>

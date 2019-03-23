@@ -57,7 +57,7 @@ namespace TSoft.Library.Core
         /// <returns> An array of object. </returns>
         public static object[] GetObjectCustomAttributes<T>(this T sender, Type type = null)
         {
-            if (EqualityComparer<T>.Default.Equals(sender, default(T)))
+            if (EqualityComparer<T>.Default.Equals(sender, default))
                 return null;
 
             try
@@ -78,7 +78,7 @@ namespace TSoft.Library.Core
         /// <returns> The propertie value. </returns>
         public static object GetPropertieValue<T>(this T sender, string propertie)
         {
-            if (EqualityComparer<T>.Default.Equals(sender, default(T)) || string.IsNullOrEmpty(propertie))
+            if (EqualityComparer<T>.Default.Equals(sender, default) || string.IsNullOrEmpty(propertie))
                 return null;
 
             try
@@ -102,7 +102,7 @@ namespace TSoft.Library.Core
             if (ObjectCache.TryGetValue(obj, out Dictionary<string, object> properties) && properties.ContainsKey(name))
                 return (T)properties[name];
             else
-                return default(T);
+                return default;
         }
 
         /// <summary> An object extension method that gets a value. </summary>
@@ -121,7 +121,7 @@ namespace TSoft.Library.Core
         /// <param name="value">     The value. </param>
         public static void SetPropertieValue<T>(this T sender, string propertie, object value)
         {
-            if (EqualityComparer<T>.Default.Equals(sender, default(T)) || string.IsNullOrEmpty(propertie))
+            if (EqualityComparer<T>.Default.Equals(sender, default) || string.IsNullOrEmpty(propertie))
                 return;
 
             try
@@ -157,7 +157,7 @@ namespace TSoft.Library.Core
         /// <typeparam name="TDerived"> Type of the derived. </typeparam>
         /// <param name="typeBase"> The type base. </param>
         /// <returns> TypeBase as a TDerived. </returns>
-        public static TDerived ToDerived<TBase, TDerived>(TBase typeBase)
+        public static TDerived ToDerived<TBase, TDerived>(this TBase typeBase)
             where TDerived : TBase, new()
         {
             TDerived tDerived = new TDerived();

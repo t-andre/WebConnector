@@ -162,8 +162,13 @@ namespace TSoft.Library.Core
         /// <typeparam name="T"> Generic type parameter. </typeparam>
         /// <param name="value"> The value. </param>
         /// <returns> A T. </returns>
-        public static T ParseToEnum<T>(string value)
+        public static T ParseToEnum<T>(this string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException($"{nameof(value)} is null or empty.", nameof(value));
+            }
+
             object enumParse = Enum.Parse(typeof(T), value);
             return (T)enumParse;
         }
@@ -178,7 +183,7 @@ namespace TSoft.Library.Core
         {
             try
             {
-                return (T)(object)(((int)(object)type & ~(int)(object)value));
+                return (T)(object)((int)(object)type & ~(int)(object)value);
             }
             catch (Exception ex)
             {

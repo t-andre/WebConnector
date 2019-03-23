@@ -52,7 +52,6 @@ namespace TSoft.Library.Logging
         /// <param name="loggerConfiguration"> (Optional) The logger configuration. </param>
         public SerilogLogger(string context, Func<LoggerConfiguration, LoggerConfiguration> loggerConfiguration = null) : base(context, loggerConfiguration)
         {
-
         }
 
         /// <summary> Initializes a new instance of the TSoft.Library.Logging.SerilogLogger&lt;T&gt; class. </summary>
@@ -61,7 +60,6 @@ namespace TSoft.Library.Logging
         /// <param name="loggerConfiguration"> (Optional) The logger configuration. </param>
         public SerilogLogger(string context, object value, Func<LoggerConfiguration, LoggerConfiguration> loggerConfiguration = null) : base(context, value, loggerConfiguration)
         {
-
         }
         #endregion
     }
@@ -90,7 +88,6 @@ namespace TSoft.Library.Logging
         /// <param name="loggerConfiguration"> (Optional) The logger configuration. </param>
         public SerilogLogger(string context, object value, Func<LoggerConfiguration, LoggerConfiguration> loggerConfiguration = null)
         {
-
             if (!initialised)
             {
                 LoggerConfiguration configuration = ConfigureLogger(loggerConfiguration);
@@ -104,7 +101,6 @@ namespace TSoft.Library.Logging
             {
                 log = Log.ForContext(context, value, true);
             }
-
         }
         #endregion
 

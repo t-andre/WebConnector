@@ -18,7 +18,6 @@ namespace TSoft.Library.Core.FileSystem
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public class FileActions
     {
-
         #region [Constructors]
 
         /// <summary> Initializes a new instance of the FileActions class. </summary>
@@ -141,7 +140,6 @@ namespace TSoft.Library.Core.FileSystem
             //file is not locked
             return false;
         }
-
 
         #endregion
 

@@ -56,7 +56,7 @@ namespace TSoft.Library.Core
           (this IEnumerable<TEntity> allItems, Func<TEntity, TProperty> idProperty, Func<TEntity, TProperty> parentIdProperty)
           where TEntity : class
         {
-            return CreateHierarchy(allItems, default(TEntity), idProperty, parentIdProperty, 0);
+            return CreateHierarchy(allItems, default, idProperty, parentIdProperty, 0);
         }
 
         /// <summary> An ICollection&lt;T&gt; extension method that compares objects. </summary>
@@ -182,7 +182,6 @@ namespace TSoft.Library.Core
         /// <returns> Collection as a DataTable. </returns>
         public static DataTable ToDataTable<T>(this IEnumerable<T> collection)
         {
-
             DataTable dt = new DataTable();
 
             Type t = typeof(T);
@@ -208,7 +207,6 @@ namespace TSoft.Library.Core
                 dt.Rows.Add(dr);
             }
             return dt;
-
         }
 
         /// <summary> An IEnumerable&lt;T&gt; extension method that converts a collection to a data table. </summary>
@@ -221,7 +219,6 @@ namespace TSoft.Library.Core
             DataTable tbl = ToDataTable(collection);
             tbl.TableName = tableName;
             return tbl;
-
         }
 
         /// <summary> An IEnumerable&lt;T&gt; extension method that converts an enumerableList to an observable collection. </summary>

@@ -8,7 +8,6 @@ using System;
 
 namespace WebConnector.Kanboard.Entities
 {
-
     /// <summary> A response. </summary>
     public abstract class Response
     {
